@@ -1,0 +1,42 @@
+Follow the steps below to install Java OpenJDK 11 on your Ubuntu system
+-----------------------------------------------------------------------
+Step1.sudo apt update
+Step2.sudo apt install default-jdk
+Step3. java -version
+
+The output will look something like this:
+Output:
+openjdk version "11.0.2" 2019-01-15
+OpenJDK Runtime Environment (build 11.0.2+9-Ubuntu-3ubuntu118.04.3)
+OpenJDK 64-Bit Server VM (build 11.0.2+9-Ubuntu-3ubuntu118.04.3, mixed mode, sharing)
+
+To install perticular version
+------------------------------
+sudo apt update
+sudo apt install openjdk-8-jdk
+
+Now come to the jenkins installation
+------------------------------------
+First, add the repository key to the system:
+Step1. wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+
+Next, let’s append the Debian package repository address to the server’s sources.list:
+Step2. sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+After both commands have been entered, we’ll run update so that apt will use the new repository.
+Step3. sudo apt update
+
+Finally, we’ll install Jenkins and its dependencies.
+Step4. sudo apt install jenkins
+
+Since systemctl doesn’t display status output, we’ll use the status command to verify that Jenkins started successfully:
+Step5. sudo systemctl status jenkins
+
+If everything went well, the beginning of the status output shows that the service is active and configured to start at boot:
+Output
+● jenkins.service - LSB: Start Jenkins at boot time
+   Loaded: loaded (/etc/init.d/jenkins; generated)
+   Active: active (exited) since Fri 2020-06-05 21:21:46 UTC; 45s ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0 (limit: 1137)
+   CGroup: /system.slice/jenkins.service
