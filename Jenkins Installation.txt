@@ -42,3 +42,32 @@ Output
      Docs: man:systemd-sysv-generator(8)
     Tasks: 0 (limit: 1137)
    CGroup: /system.slice/jenkins.service
+ another way to install..............
+ ==================================
+ Dev server creation
+-------------------
+step1: install jdk
+       sudo apt install default-jdk
+                (or)
+       sudo apt install openjdk-11-jdk
+       To check the java version give command
+       java -version
+
+step2: git installation
+       sudo apt-get install git
+
+step3: maven installation
+       sudo apt-get install maven
+
+step4: Jenkins installation
+       *wget <url>
+       *check list for .war file
+        ls....> jenkins.war
+       *download war file
+        java -jar  jenkins.war
+       *gives the password to run jenkins server(copy it)
+       *paste the public ip on the browser
+        public ip:8080
+        paste the password
+       *create user name and password
+    
